@@ -26,6 +26,9 @@ func main() {
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
 }
 
+/**
+ * 每个 goroutine 执行一个 fetch 方法，每个 fetch 方法都会往 chanel 里发送一个值，ch <- expression
+ */
 func fetch(url string, ch chan<- string) {
 	start := time.Now()
 	resp, err := http.Get(url)
